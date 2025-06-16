@@ -253,7 +253,7 @@ Function Get-MorpheusAgentSocketStatus {
     }
 
     if (IsElevated) {
-        $Agent = Get-CIMInstance -Class win32_Service -Filter "Name like 'Morpheus Windows Agent'"
+        $Agent = Get-CIMInstance -Classname win32_Service -Filter "Name like 'Morpheus Windows Agent'"
         if ($Agent) {
             $Status.agentStatus = $Agent.Status
             $Status.agentState = $Agent.State
